@@ -25,4 +25,6 @@ MACHINE_LEARNING_METHODS
     or component velocities. saves tree diagram examples  
     K-nearest neighbours method for the three feature sets. 
     Performs feature tuning
+    performs early stopping trails
+    calculates prediction intervals
 

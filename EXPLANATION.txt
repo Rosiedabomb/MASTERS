@@ -1,0 +1,28 @@
+this text file gives a description of what each file in the same directory does
+written by Rosie Davies - rosiegdavies1834@gmail.com
+('C:\Users\Rosie\Documents\04_FINAL FOURTH YEAR\MASTERS\AA_RESULTS_DATA_PROCESSING')
+
+DATA_VISUALISATION
+    this ipynb notebook creates a plot of each feature against each output and saves them.
+    and calculates the pearson and spearman correlation. saves pearson in a csv
+    perform a heatmap
+    Performs statistical significance testing Mann whitney U TEST to determine whether they are significantly different.
+
+RESULTS_PROCESSING
+    this ipynb notebook takes the seperate input data from each impact and combines them into one file,
+    listing the max for each feature and then saving as a CSV 'IMPACT_DATA'
+    searching for max for each feature and saving as csv 'IMPACT_DATA_duplicates_removed'
+    comning datasets IMPACT_DATA + IMPACT_DATA_duplicates_removed = IMPACT_DATA_COMBINED
+
+data_decode
+    this ipynb notebook takes the k files and raw data text files for the new bicycle2020 swedish lab data
+    and the original head lab data and returns a csv with all data in columns. e.g ACC_f_01_R_04_X, in k_files_2020 on hardrive
+    calculate the resultant and rotational velocity and combine them into a csv 'FULL_ACC_f_01_R_04_X'
+
+MACHINE_LEARNING_METHODS
+    this ipynb notebook performs multiple linear regression on the dataset. makes bland aldman plots and plots predicted vs actual
+    performs xgboost for strain and strain rate, with changeable input feature combinations e.g. using resultants, 
+    or component velocities. saves tree diagram examples  
+    K-nearest neighbours method for the three feature sets. 
+    Performs feature tuning
+

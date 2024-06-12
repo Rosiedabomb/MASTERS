@@ -1,5 +1,7 @@
 import pandas as pd
 import numpy as np
+import xgboost as xgb
+#importing numpy libraries
 
 # this file will contain functions to calculate the input values from the
 def extract_peak_values(path):
@@ -28,7 +30,13 @@ def predict_strain_90th(peak_lin_acc, peak_rot_acc, peak_rot_vel,):
     parameters: peak kinematics (maximum magnitude)
     returns: predicted 90th percentile strain
     '''
-    prediction = peak_rot_vel + peak_lin_acc + peak_rot_acc #replace with ML MODEL
+    loaded_model = xgb.XGBRegressor()
+    loaded_model.load_model('D:/MASTERS/resultant_strain_xgb.json') # load the saved/pretrained model
+    #['peak rot acc resultant','peak lin acc resultant','peak rot vel resultant',]
+    #'make inputs into correct format.
+    input_df = pd.DataFrame([[peak_rot_acc, peak_lin_acc, peak_rot_vel]], 
+                            columns=['peak rot acc resultant', 'peak lin acc resultant', 'peak rot vel resultant'])
+    prediction = loaded_model.predict(input_df) #xgboost prediction
     return prediction
 
 def predict_strainrate_90th(peak_lin_acc, peak_rot_acc, peak_rot_vel,):
@@ -37,5 +45,12 @@ def predict_strainrate_90th(peak_lin_acc, peak_rot_acc, peak_rot_vel,):
     parameters: peak kinematics (maximum magnitude)
     returns: predicted 90th percentile strainrate
     '''
-    prediction = peak_rot_vel + peak_lin_acc + peak_rot_acc #replace with ML MODEL
+    # Load model from file
+    loaded_model = xgb.XGBRegressor()
+    loaded_model.load_model('D:/MASTERS/resultant_strainrate_xgb.json') # load the saved/pretrained model
+    #['peak rot acc resultant','peak lin acc resultant','peak rot vel resultant',]
+    #'make inputs into correct format.
+    input_df = pd.DataFrame([[peak_rot_acc, peak_lin_acc, peak_rot_vel]], 
+                            columns=['peak rot acc resultant', 'peak lin acc resultant', 'peak rot vel resultant'])
+    prediction = loaded_model.predict(input_df) #xgboost prediction
     return prediction

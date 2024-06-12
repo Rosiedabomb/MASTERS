@@ -28,3 +28,10 @@ MACHINE_LEARNING_METHODS
     performs early stopping trails
     calculates prediction intervals
 
+GUI
+    main.py
+        creates a window with buttons, to act as a user interface.
+        Links to backend functions
+        can upload an acceleration file one at a time.
+    functions.py
+        contains three functions, one which extracts the peak values from the 

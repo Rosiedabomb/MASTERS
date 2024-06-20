@@ -31,7 +31,7 @@ def predict_strain_90th(peak_lin_acc, peak_rot_acc, peak_rot_vel,):
     returns: predicted 90th percentile strain
     '''
     loaded_model = xgb.XGBRegressor()
-    loaded_model.load_model('D:/MASTERS/resultant_strain_xgb.json') # load the saved/pretrained model
+    loaded_model.load_model('G:/MASTERS/resultant_strain_xgb.json') # load the saved/pretrained model
     #['peak rot acc resultant','peak lin acc resultant','peak rot vel resultant',]
     #'make inputs into correct format.
     input_df = pd.DataFrame([[peak_rot_acc, peak_lin_acc, peak_rot_vel]], 
@@ -47,7 +47,7 @@ def predict_strainrate_90th(peak_lin_acc, peak_rot_acc, peak_rot_vel,):
     '''
     # Load model from file
     loaded_model = xgb.XGBRegressor()
-    loaded_model.load_model('D:/MASTERS/resultant_strainrate_xgb.json') # load the saved/pretrained model
+    loaded_model.load_model('G:/MASTERS/resultant_strainrate_xgb.json') # load the saved/pretrained model
     #['peak rot acc resultant','peak lin acc resultant','peak rot vel resultant',]
     #'make inputs into correct format.
     input_df = pd.DataFrame([[peak_rot_acc, peak_lin_acc, peak_rot_vel]], 

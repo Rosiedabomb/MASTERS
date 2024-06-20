@@ -34,7 +34,7 @@ def predict(event=None):
 window = tk.Tk()
 window.configure(bg='#C90062')
 window.title("Brain Strain Predictor") # set title
-window.geometry('400x250')
+window.geometry('475x225')
 window.iconbitmap('C:/Users/Rosie/Documents/04_FINAL FOURTH YEAR/MASTERS/GUI/brain_icon_3.ico')
 
 #defining variables as StringVars so they automatically update
@@ -45,13 +45,13 @@ file_name = tk.StringVar(value='filename will appear here')
 
 #creating widgets - labels are just text displayed, entries allow user input, buttons are clickable
 #labels
-strain_label = tk.Label(window, text="Strain 90th percentile, prediction:", bg='#C90062')
+strain_label = tk.Label(window, text="Strain 90th percentile, prediction:")
 strain_prediction = tk.Label(window, textvariable=strain_prediction_value)
-strainrate_label = tk.Label(window, text="Strain rate 90th percentile, prediction:",bg='#C90062')
+strainrate_label = tk.Label(window, text="Strain rate 90th percentile, prediction:")
 strainrate_prediction = tk.Label(window, textvariable=strainrate_prediction_value)
 file_selected_label = tk.Label(window, textvariable=file_name,bg='#C90062')
-prediction_interval_strainrate = tk.Label(window, text='+/- 0.051 (95%)')
-prediction_interval_strain = tk.Label(window, text='+/- 0.11 (95%)')
+prediction_interval_strainrate = tk.Label(window, text='+/- 0.026 (95%)') #smaller
+prediction_interval_strain = tk.Label(window, text='+/- 0.06 (95%)') #larger
 
 #buttons -  command above
 upload_file_button = tk.Button(window, text="Upload file",command=Upload_file_action)
@@ -59,14 +59,14 @@ predict_button = tk.Button(window, text="Predict",command=predict)
 
 
 # Place widgets with padding
-upload_file_button.grid(row=0, column=0, columnspan=2, pady=10)
-file_selected_label.grid(row=1, column=0, columnspan=2, pady=5)
+upload_file_button.grid(row=0, column=0, columnspan=3, pady=10)
+file_selected_label.grid(row=1, column=0, columnspan=3, pady=5)
 strain_label.grid(row=2, column=0, padx=10, pady=5, sticky="e")
 strain_prediction.grid(row=2, column=1, padx=10, pady=5, sticky="w")
-prediction_interval_strain.grid(row=2, column=2, padx=10, pady=5, sticky="w")
+prediction_interval_strain.grid(row=2, column=2, padx=0, pady=5, sticky="w")
 strainrate_label.grid(row=3, column=0, padx=10, pady=5, sticky="e")
 strainrate_prediction.grid(row=3, column=1, padx=10, pady=5, sticky="w")
-prediction_interval_strainrate.grid(row=3, column=2, padx=10, pady=5, sticky="w")
-predict_button.grid(row=4, column=0, columnspan=2, pady=20)
+prediction_interval_strainrate.grid(row=3, column=2, padx=0, pady=5, sticky="w")
+predict_button.grid(row=4, column=0, columnspan=3, pady=20)
 
 window.mainloop()
